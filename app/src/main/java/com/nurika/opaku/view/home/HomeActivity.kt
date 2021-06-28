@@ -3,22 +3,17 @@ package com.nurika.opaku.view.home
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.android.gms.common.api.internal.ActivityLifecycleObserver.of
 import com.nurika.opaku.R
 import com.nurika.opaku.data.repository.local.entity.CatalogEntity
-import com.nurika.opaku.data.repository.local.entity.UserEntity
 import com.nurika.opaku.databinding.ActivityHomeBinding
 import com.nurika.opaku.utils.EnumStatus
 import com.nurika.opaku.view.BaseActivity
-import com.nurika.opaku.view.user.UserAdapter
-import com.nurika.opaku.view.user.UserViewModel
+import com.nurika.opaku.view.catalog.CatalogDetailActivity
 import com.nurika.opaku.viewmodel.ViewModelFactory
 import com.squareup.picasso.Picasso
-import java.util.EnumSet.of
 
 class HomeActivity : BaseActivity() {
 
@@ -32,8 +27,6 @@ class HomeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        screenName = "Home Screen"
 
         viewModel =
             ViewModelProvider(this, ViewModelFactory.getInstance(this))[HomeViewModel::class.java]
@@ -49,7 +42,10 @@ class HomeActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        sendLog()
+        sendLogScreen(
+            "Home Screen",
+            HomeActivity::class.java.simpleName
+        )
     }
 
     private fun observeApi() {
@@ -77,6 +73,8 @@ class HomeActivity : BaseActivity() {
         newData?.let { datas ->
             catalogAdapter.submitList(datas)
             catalogAdapter.notifyDataSetChanged()
+
+            sendProductImpressionList(datas)
         }
     }
 

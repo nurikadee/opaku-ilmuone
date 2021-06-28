@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.nurika.opaku.databinding.ActivitySplashBinding
 import com.nurika.opaku.view.BaseActivity
+import com.nurika.opaku.view.catalog.CatalogDetailActivity
 import com.nurika.opaku.view.home.HomeActivity
 
 class SplashActivity : BaseActivity() {
@@ -15,8 +16,6 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        screenName = "Splash Screen"
 
         val handler = Handler()
         handler.postDelayed({
@@ -29,7 +28,10 @@ class SplashActivity : BaseActivity() {
     override fun onStart() {
         super.onStart()
 
-        sendLog()
+        sendLogScreen(
+            "Splash Screen",
+            SplashActivity::class.java.simpleName
+        )
         sendEventAppOpen()
     }
 
