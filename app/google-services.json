@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1037012831666",
+    "project_id": "opaku-ilmuone",
+    "storage_bucket": "opaku-ilmuone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037012831666:android:02345044a169748b23e8ab",
+        "android_client_info": {
+          "package_name": "com.nurika.opaku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037012831666-a2bif2i81p4c9dj6ik2a8l9nacnf0bko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxWp47qaucKkHgl5s0RXMU48P33OLwzSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037012831666-a2bif2i81p4c9dj6ik2a8l9nacnf0bko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
